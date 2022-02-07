@@ -1,10 +1,10 @@
 'use strict';
 const puppeteer = require('puppeteer');
-const log = require('./connect');
+const log = require('../lib/connect');
 
 const login = async function (username, password){
     const browser = await puppeteer.launch({
-        headless: false,
+        headless: true,
         args: [],
     });
     const page = await browser.newPage();

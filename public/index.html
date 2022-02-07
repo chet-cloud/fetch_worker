@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Show all messages from server</title>
+    <script src="./browserws.js"></script>
+    <script>
+        function showMessage(message) {
+            const messages = document.querySelector('#messages');
+            messages.textContent += `\n${message}`;
+            messages.scrollTop = messages.scrollHeight;
+        }
+
+        const ws = NewWebsocket()
+
+        ws.addListener('message', function (d) {
+            showMessage(d)
+        })
+
+        ws.addListener("open",()=>{
+            showMessage('WebSocket connection established');
+        })
+
+        ws.addListener("close",()=>{
+            showMessage('WebSocket connection closed');
+        })
+
+    </script>
+</head>
+<body>
+<pre id="messages" style="height: 800px; overflow: scroll"></pre>
+</body>
+</html>

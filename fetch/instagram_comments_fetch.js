@@ -46,7 +46,9 @@ const fetch_comments = async (username, password, url) => {
     return page
 };
 
-fetch_comments("xxx", "xxx", "https://www.instagram.com/p/CY-DPR-M678/").then(r => {
-    console.log("ok")
-})
+// fetch_comments("xxx", "xxx", "https://www.instagram.com/p/CY-DPR-M678/").then(r => {
+//     console.log("ok")
+// })
 
+
+module.exports  = fetch_comments
